@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100vw;
+  height: 48px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #343a40;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: top;
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: calc(100vh - 48px);
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  padding: 10px 25px;
+}
+
+.nav-item {
+  color: #212529;
+  text-decoration: none;
+}
+
+main {
+  width: calc(100vw - 200px);
+  padding: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+
+tr td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.product {
+  max-width: 150px;
+  border: 1px solid gray;
+  padding: 3px;
+}
+
+a.button1 {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+a.button1:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+@media all and (max-width: 30em) {
+  a.button1 {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
