@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MyEshop.Models;
 namespace MyEshop.Data.Repositories;
 
 public interface IGroupRepository
 {
     IEnumerable<Category> GetAllCategories();
-    IEnumerable<ShowGroupViewModel> GetGroupForShow();
+    Task<IEnumerable<ShowGroupViewModel>> GetGroupForShow();
 }
 
 
@@ -25,14 +26,14 @@ public class GroupRepository : IGroupRepository
         return _context.Categories;
     }
 
-    public IEnumerable<ShowGroupViewModel> GetGroupForShow()
+    public async Task<IEnumerable<ShowGroupViewModel>> GetGroupForShow()
     {
-       return _context.Categories
+       return await _context.Categories
         .Select(c => new ShowGroupViewModel
         {
             GroupId = c.Id,
             Name = c.Name,
             ProductCount = _context.CategoryToProducts.Count(g => g.CategoryId == c.Id),
-        }).ToList();
+        }).ToListAsync();
     }
 }

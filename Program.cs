@@ -27,7 +27,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -40,9 +39,9 @@ app.Use(async (context, next) =>
 {
     if (context.Request.Path.StartsWithSegments("/Admin"))
     {
-        if (!context.User.Identity.IsAuthenticated)
+        if (!context.User.Identity!.IsAuthenticated)
             context.Response.Redirect("/Account/Login");
-        else if (!bool.Parse(context.User.FindFirstValue("IsAdmin")))
+        else if (!bool.Parse(context.User.FindFirstValue("IsAdmin") ?? "False"))
             context.Response.Redirect("/Account/Login");
     }
     await next.Invoke();

@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MyEshop.Data.Repositories;
 using System.Security.Claims;
-namespace MyEshop.Models;
+using MyEshop.Models;
+namespace MyEshop.Controllers;
 
 public class AccountController : Controller
 {

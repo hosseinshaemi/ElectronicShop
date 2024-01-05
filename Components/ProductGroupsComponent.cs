@@ -16,7 +16,7 @@ public class ProductGroupsComponent : ViewComponent
     }
     public async Task<IViewComponentResult> InvokeAsync()
     {
-        var categories = _groupRepository.GetGroupForShow();
+        var categories = await _groupRepository.GetGroupForShow();
         return View("/Views/Components/ProductGroupsComponent.cshtml", 
          categories);
     }
